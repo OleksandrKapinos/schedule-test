@@ -1,0 +1,182 @@
+@import '../variables.scss';
+
+.html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-family: 'Roboto', sans-serif;
+  opacity: 95%;
+  overflow: auto;
+  background: $blue;
+
+
+  .input-container {
+    position: relative;
+    display: block;
+    width: 60vw;
+    padding: 5vh 5vw;
+    height: 70vh;
+    min-height: 500px;
+    margin: 20vh auto;
+    background: $white;
+    z-index: 10;
+    font-family: Roboto, sans-serif;
+
+    .title {
+      text-align: center;
+      font-family: "Roboto Slab", sans-serif;
+      font-size: 2em;
+      color: $teal;
+    }
+
+    .input-box {
+      display: inline-block;
+      position: relative;
+      width: 45vw;
+      padding: 15px 0 28px 0;
+
+
+      &-content {
+        position: relative;
+        width: 45vw;
+        margin: 0;
+        border-bottom: 1px solid $gray-mid;
+
+
+        input {
+          width: 100%;
+          height: 30px;
+          box-sizing: border-box;
+          line-height: 30px;
+          border: 0;
+          background: none;
+          outline: none;
+          border-radius: 0;
+          font-size: 20px;
+
+
+          &:focus, &:hover, &:valid {
+            & ~ label {
+              color: $teal;
+              transform: translateY(-25px);
+              font-size: 12px;
+            }
+          }
+
+          &:focus {
+            & ~ .underline {
+              width: 100%;
+            }
+          }
+        }
+
+        label {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 30px;
+          line-height: 30px;
+          color: $gray-mid;
+          cursor: text;
+          transition: all 200ms ease-out;
+          z-index: 10;
+        }
+
+        .label {
+          font-size: 20px;
+        }
+
+        .underline {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: $teal;
+          border-bottom: 1px solid $gray;
+          transition: all 200ms ease-out;
+        }
+      }
+
+      .datepicker {
+        position: absolute;
+        fill: $gray-mid;
+        z-index: 100;
+        transform: translateY(-10px);
+      }
+
+      .datepicker:hover {
+        fill: $teal;
+      }
+    }
+
+    .buttons {
+      padding: 5% 0 5% 15%;
+
+      .btn {
+        display: inline-block;
+        margin: 0 2px 2px 0;
+        padding: 10px 25px;
+        background: none;
+        border: 1px solid $gray-light;
+        border-radius: 2px;
+        color: $gray;
+        font-size: 1.125em;
+        outline: none;
+        transition: all 100ms ease-out;
+        cursor: pointer;
+
+        &:hover, &:focus {
+          transform: translateY(-3px);
+        }
+      }
+
+      .btn-add:hover {
+        border: 1px solid $teal;
+        color: $teal;
+      }
+
+      .btn-cancel:hover {
+        border: 1px solid $red;
+        color: $red;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 970px) {
+  .container {
+    overflow: auto;
+
+    .input-container {
+      width: 90vw;
+      height: auto;
+      margin: 5vh auto;
+
+      .input-box {
+        width: 100%;
+
+        &-content{
+          width: 100%;
+        }
+      }
+    }
+  }
+  .datepicker {
+    display: block;
+    transform: translateY(0);
+    padding: 15px 0;
+  }
+}

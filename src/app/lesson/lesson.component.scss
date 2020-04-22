@@ -1,0 +1,220 @@
+@import '../variables.scss';
+
+.html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+input {
+  width: 100%;
+  line-height: 4vh;
+  border: 0;
+  outline: none;
+  font-size: 20px;
+}
+
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  &.image {
+    background: url("../images/lesson-background.jpg") no-repeat;
+    background-size: cover;
+  }
+  &.color{
+    background: #52c4ef;
+    z-index: -1;
+  }
+}
+
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+
+  .add-lesson-button {
+    position: relative;
+    display: block;
+    width: 80vw;
+    height: 40px;
+    margin: 7vh auto;
+    padding: 2px 0;
+    background: white;
+    font-size: 36px;
+    color: $teal;
+    font-family: 'Roboto Slab', sans-serif;
+    border: 4px solid $teal;
+    border-radius: 6px;
+
+    &:hover {
+      background: $teal-light;
+      color: white;
+    }
+  }
+
+  .empty-list {
+    position: relative;
+    font-size: 5vw;
+    color: $white;
+    text-align: center;
+    margin-top: 10vh;
+    -webkit-text-stroke: 2px $teal;
+  }
+
+  .pop-up {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+  }
+
+
+  .lessons-list {
+    display: block;
+    width: 80vw;
+    min-height: 40vh;
+    margin: 7vh auto;
+    background: $white;
+    border: 4px solid $teal;
+    border-radius: 6px;
+
+    .table {
+      position: relative;
+      width: 100%;
+
+      .table-head {
+        position: relative;
+        background: $teal;
+        color: $white;
+      }
+    }
+  }
+}
+
+
+.lesson {
+  display: inline-block;
+  border-bottom: 4px solid $teal;
+  height: 60px;
+  line-height: 60px;
+  font-size: 20px;
+  text-align: center;
+  overflow: hidden;
+
+  &.id {
+    width: 8%;
+  }
+
+  &.topic, &.date, &.lecturer, &.action {
+    width: 23%;
+  }
+
+
+  &.edit {
+    text-align: center;
+    margin: auto;
+
+    &.topic, &.date, &.lesson {
+      .edition-content {
+        display: inline-block;
+        line-height: 40px;
+        padding: 0;
+        margin: 0 5px;
+        border-bottom: 3px solid $gray;
+        color: $gray;
+      }
+    }
+  }
+
+
+  .button {
+    position: relative;
+    display: inline-block;
+    height: auto;
+    line-height: 3vh;
+    width: 7vw;
+    background: $teal-light;
+    border: 4px solid $teal;
+    color: $white;
+    border-radius: 6px;
+    //padding: 1px;
+    margin-right: 2px;
+    font-size: 20px;
+
+    &.delete, &.cancel {
+      color: $gray-dark;
+      background: $white;
+      border: 4px solid $teal;
+    }
+
+    &.delete:hover, &.cancel:hover {
+      background: $red;
+      color: $white;
+    }
+  }
+}
+
+td.lesson {
+  background-color: $white;
+}
+
+
+@media all and (max-width: 970px) {
+  .container {
+    .add-lesson-button {
+      height: auto;
+      padding: 5px;
+    }
+
+    .empty-list {
+      font-size: 36px;
+      -webkit-text-stroke: unset;
+    }
+  }
+
+  .table-head {
+    display: none;
+  }
+  .lesson {
+    display: block;
+    width: 50%;
+    border: none;
+
+    &.id, &.topic, &.date, &.lecturer, &.action {
+      width: 100%;
+    }
+
+    &.id {
+      background: $teal-light;
+      color: $white;
+
+      &:before {
+        content: 'Lesson №';
+      }
+    }
+
+    &.action {
+      border-bottom: 4px solid $teal;
+    }
+
+    .button {
+      width: auto;
+    }
+  }
+}
+
+
+
+
+

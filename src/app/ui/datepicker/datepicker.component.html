@@ -1,0 +1,53 @@
+<div class="calendar-container">
+  <span class="calendar-icon">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         (click)="onShowCalendar($event)"
+         width="48" height="48"
+         viewBox="0 0 48 48">
+      <path d="M38 6h-2V2h-4v4H16V2h-4v4h-2c-2.21 0-3.98
+              1.79-3.98 4L6 38c0 2.21 1.79 4 4 4h28c2.21
+              0 4-1.79 4-4V10c0-2.21-1.79-4-4-4zm0
+              32H10V16h28v22zM14 20h10v10H14z"/>
+    </svg>
+    </span>
+
+  <div class="date" [ngClass]="{ 'isActive': showCalendar }">
+    <div class="month-container">
+
+      <i class="icon-left"
+         (click)="updateMonth($event, 'dec')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#fff"
+             viewBox="0 0 48 48"><path d="M30.83 14.83L28 12 16 24l12 12 2.83-2.83L21.66 24z"/>
+        </svg></i>
+
+      <div class="period">
+        <span class="month">{{ months[month] }}</span>
+        <span class="year">{{ year }}</span>
+
+
+      </div>
+      <i class="icon-right"
+         (click)="updateMonth($event, 'inc')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"  fill="#fff"
+             viewBox="0 0 48 48"><path d="M20 12l-2.83 2.83L26.34 24l-9.17 9.17L20 36l12-12z"/>
+        </svg></i>
+    </div>
+    <div class="week-container">
+      <span class="week">Mon</span>
+      <span class="week">Tue</span>
+      <span class="week">Wed</span>
+      <span class="week">Thu</span>
+      <span class="week">Fri</span>
+      <span class="week">Sat</span>
+      <span class="week">Sun</span>
+    </div>
+    <div class="day-container">
+      <span class="day" *ngFor="let day of days" [ngClass]="{ 'isSelected': day === date.getDate() }"
+            (click)="selectDay(day)">
+        {{ day }}
+      </span>
+    </div>
+  </div>
+</div>
+
+

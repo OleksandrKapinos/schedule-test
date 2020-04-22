@@ -1,0 +1,159 @@
+/* You can add global styles to this file, and also import other style files */
+$teal: #00796B;
+$teal-light: #009688;
+$white: #ffffff;
+$gray: #757575;
+$gray-dark: #212121;
+$gray-mid: #9e9e9e;
+$gray-light: #e0e0e0;
+$red: #F44336;
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html {
+  font-family: sans-serif;
+  -ms-text-size-ajust: 100%;
+  -webkit-text-size-ajust: 100%
+}
+
+body {
+  margin: 0
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block
+}
+
+a {
+  background-color: transparent
+}
+
+a:active, a:hover {
+  outline: 0
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0
+}
+
+img {
+  border: 0
+}
+
+svg:not(:root) {
+  overflow: hidden
+}
+
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0
+}
+
+button {
+  overflow: visible
+}
+
+button, select {
+  text-transform: none
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer
+}
+
+button[disabled], html input[disabled] {
+  cursor: default
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0
+}
+
+input {
+  line-height: normal
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+td, th {
+  padding: 0
+}
+
+body, form, fieldset, table, th, td, blockquote, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0
+}
+
+input, select {
+  text-align: inherit
+}
+
+input, button, textarea {
+  background-color: transparent;
+  border: 0;
+  padding: 0
+}
+
+button:focus {
+  outline: 5px auto -webkit-focus-ring-color
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0
+}
+
+ol, ul {
+  list-style: none
+}
+
+[tabindex="-1"]:focus {
+  outline: none !important
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit
+}
+
+html[dir="ltr"] {
+  direction: ltr
+}
+
+a {
+  text-decoration: none
+}
+
+html, body {
+  width: 100%;
+  height: 100%
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.75rem;
+  -webkit-font-smoothing: antialiased
+}
+
+
+

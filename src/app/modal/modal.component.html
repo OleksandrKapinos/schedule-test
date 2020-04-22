@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="input-container" (keyup.escape)="cancel()" (keyup.enter)="add(createdLesson)">
+
+    <form class="input-content" #lessonForm="ngForm" (ngSubmit)="add(createdLesson)">
+      <h2 class="title">New lesson</h2>
+
+        <dl class="input-box">
+          <dd class="input-box-content">
+            <input id="input0" type="text"
+                   class="form-control"
+                   name="topic"
+                   [(ngModel)]="createdLesson.topic"
+                   required/>
+            <label class="label" for="input0">Topic</label>
+            <span class="underline"></span>
+          </dd>
+        </dl>
+
+      <dl class="input-box">
+        <dd class="input-box-content">
+
+            <input id="input1" type="text" class="form-control"
+                   name="dating"
+                   [(ngModel)]="dateString"
+                   mask="00/00/0000"
+                   required
+                   ngDefaultControl/>
+            <label class="label" for="input0">Date</label>
+          <app-datepicker
+            (update)="onDateUpdate($event)"
+            name="calendar"
+            ngDefaultControl
+            [(ngModel)]="dateString"
+            class="datepicker"
+            [ngModelOptions]="{standalone: true}">
+          </app-datepicker>
+          <span class="underline"></span>
+        </dd>
+      </dl>
+
+        <dl class="input-box">
+          <dd class="input-box-content">
+            <input id="input2" type="text" class="form-control"
+                   name="lecturer"
+                   [(ngModel)]="createdLesson.lecturer"
+                   required/>
+            <label class="label" for="input1">Lecturer</label>
+            <span class="underline"></span>
+          </dd>
+        </dl>
+
+        <div class="buttons">
+          <button type="button" class="btn btn-add" [disabled]="lessonForm.invalid" (click)="add(createdLesson)">Add
+          </button>
+          <button type="button" class="btn btn-cancel" (click)="cancel()">Cancel</button>
+        </div>
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="background color"></div>
+<div class="background image"></div>
+
+<div class="container">
+    <button class="add-lesson-button" (click)="add()">Add lesson</button>
+
+  <div *ngIf="lessons.length !== 0" class="lessons-list">
+  <table class="table">
+      <thead class="table-head">
+      <tr>
+        <th class="lesson id">#</th>
+        <th class="lesson topic">Topic</th>
+        <th class="lesson date">Date</th>
+        <th class="lesson lecturer">Lecturer</th>
+        <th class="lesson action">Action</th>
+      </tr>
+      </thead>
+      <tbody cdkDropList (cdkDropListDropped)="drop($event)">
+       <tr cdkDrag *ngFor="let lesson of lessons; let i = index" >
+          <ng-template [ngTemplateOutlet]="loadTemplate(lesson)"
+           [ngTemplateOutletContext]='{
+                  $implicit: lesson,
+                  index: i
+                  }'>
+        </ng-template>
+       </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div *ngIf="lessons.length === 0">
+    <h3 class="empty-list">Your table is empty</h3>
+  </div>
+
+  <div *ngIf="addNew" class="popup">
+    <app-modal (addingEvent)="onAdding($event)" (cancelEvent)="onCancel()" [lessonId]="lessonId"></app-modal>
+  </div>
+</div>
+
+
+  <!--For reading-->
+  <ng-template #readOnlyTemplate let-lesson let-index="index" >
+    <td class="lesson id">{{index + 1}}</td>
+    <td class="lesson topic">{{lesson.topic}}</td>
+    <td class="lesson date">{{lesson.date | mask:"00/00/0000"}}</td>
+    <td class="lesson lecturer">{{lesson.lecturer}}</td>
+    <td class="lesson action">
+      <button class="button editing" (click)="edit(lesson)">Edit</button>
+      <button class="button delete" (click)="delete(lesson)">Delete</button>
+    </td>
+  </ng-template>
+
+
+  <!--For editing-->
+  <ng-template #editTemplate let-index="index">
+    <td class="lesson id edit">
+      {{index + 1}}
+    </td>
+    <td class="lesson topic edit">
+      <p class="edition-content"><input type="text"  placeholder="Topic" [(ngModel)]="editedLesson.topic" ></p>
+    </td>
+    <td class="lesson date edit">
+      <p class="edition-content"><input type="text"  placeholder="Date" [(ngModel)]="editedLesson.date" mask="00/00/0000"></p>
+    </td>
+    <td class="lesson lecturer edit">
+      <p class="edition-content"><input type="text"  placeholder="Lecturer" [(ngModel)]="editedLesson.lecturer"></p>
+    </td>
+    <td class="lesson action edit">
+      <button class="button save" (click)="save(editedLesson)">Save</button>
+      <button class="button cancel" (click)="cancel()">Cancel</button>
+    </td>
+  </ng-template>
